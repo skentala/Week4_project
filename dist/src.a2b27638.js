@@ -177,10 +177,17 @@ module.hot.accept(reloadCSS);
 
 require("./styles.css");
 var submitButton = document.getElementById("submit-data");
-submitButton.addEventListener("click", function () {
-  var inputURL = document.getElementById("input-show");
-  console.log(inputURL.value);
-});
+submitButton.addEventListener("click", fetchData());
+function fetchData() {
+  console.log("Hello");
+  var inputUrlEnd = document.getElementById("input-show").value;
+  var urlBegin = "https://api.tvmaze.com/search/shows?q=";
+  console.log(inputUrlEnd);
+  var urlWhole = urlBegin + inputUrlEnd;
+  console.log(urlWhole);
+  //  const dataFetched = await fetch(urlWhole);
+  //  console.log(dataFetched);
+}
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
