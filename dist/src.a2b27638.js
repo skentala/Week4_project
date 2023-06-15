@@ -191,20 +191,17 @@ function _fetchData() {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          console.log("Hello");
           inputUrlEnd = document.getElementById("input-show").value;
-          urlBegin = "https://api.tvmaze.com/search/shows?q="; //  console.log(inputUrlEnd);
-          urlWhole = urlBegin + inputUrlEnd;
-          console.log(urlWhole);
-          _context.next = 7;
+          urlBegin = "https://api.tvmaze.com/search/shows?q=";
+          urlWhole = urlBegin + inputUrlEnd; //  console.log(urlWhole);
+          _context.next = 5;
           return fetch(urlWhole);
-        case 7:
+        case 5:
           dataFetched = _context.sent;
-          _context.next = 10;
+          _context.next = 8;
           return dataFetched.json();
-        case 10:
+        case 8:
           dataJson = _context.sent;
-          //  console.log(dataJson[0]);
           dataJson.forEach(function (data) {
             //    <div class="show-data"> 
             //      <img src="[show image medium]"> 
@@ -223,9 +220,7 @@ function _fetchData() {
             if (data.show.image) {
               if (data.show.image.medium) {
                 imgShowImage.file = data.show.image.medium;
-                console.log(imgShowImage.file);
                 imgShowImage.src = data.show.image.medium;
-                console.log(imgShowImage);
                 imgShowImage.innerHTML = imgShowImage;
                 divShowData.appendChild(imgShowImage);
               }
@@ -237,7 +232,7 @@ function _fetchData() {
             var divData = document.getElementById("data");
             divData.appendChild(divShowData);
           });
-        case 12:
+        case 10:
         case "end":
           return _context.stop();
       }

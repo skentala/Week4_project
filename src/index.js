@@ -4,15 +4,12 @@ const submitButton = document.getElementById("submit-data");
 submitButton.addEventListener("click", fetchData);
 
 async function fetchData() {
-  console.log("Hello");
   const inputUrlEnd = document.getElementById("input-show").value;
   const urlBegin = "https://api.tvmaze.com/search/shows?q=";
-//  console.log(inputUrlEnd);
   const urlWhole = urlBegin + inputUrlEnd;
-  console.log(urlWhole);
+//  console.log(urlWhole);
   const dataFetched = await fetch(urlWhole);
   const dataJson = await dataFetched.json();
-//  console.log(dataJson[0]);
   dataJson.forEach((data) => {
 //    <div class="show-data"> 
 //      <img src="[show image medium]"> 
@@ -31,9 +28,7 @@ async function fetchData() {
     if (data.show.image){
       if (data.show.image.medium){
         imgShowImage.file = data.show.image.medium;
-        console.log(imgShowImage.file);
         imgShowImage.src = data.show.image.medium;
-        console.log(imgShowImage);
         imgShowImage.innerHTML = imgShowImage;
         divShowData.appendChild(imgShowImage);
       }
