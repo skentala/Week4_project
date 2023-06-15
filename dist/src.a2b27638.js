@@ -182,25 +182,26 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 var submitButton = document.getElementById("submit-data");
 submitButton.addEventListener("click", fetchData);
-function fetchData() {
+function fetchData(_x) {
   return _fetchData.apply(this, arguments);
 }
 function _fetchData() {
-  _fetchData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  _fetchData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(event) {
     var inputUrlEnd, urlBegin, urlWhole, dataFetched, dataJson;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
+          event.preventDefault();
           inputUrlEnd = document.getElementById("input-show").value;
           urlBegin = "https://api.tvmaze.com/search/shows?q=";
           urlWhole = urlBegin + inputUrlEnd; //  console.log(urlWhole);
-          _context.next = 5;
+          _context.next = 6;
           return fetch(urlWhole);
-        case 5:
+        case 6:
           dataFetched = _context.sent;
-          _context.next = 8;
+          _context.next = 9;
           return dataFetched.json();
-        case 8:
+        case 9:
           dataJson = _context.sent;
           dataJson.forEach(function (data) {
             //    <div class="show-data"> 
@@ -232,7 +233,7 @@ function _fetchData() {
             var divData = document.getElementById("data");
             divData.appendChild(divShowData);
           });
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }

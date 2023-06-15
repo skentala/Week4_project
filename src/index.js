@@ -3,7 +3,8 @@ import "./styles.css";
 const submitButton = document.getElementById("submit-data");
 submitButton.addEventListener("click", fetchData);
 
-async function fetchData() {
+async function fetchData(event) {
+  event.preventDefault();
   const inputUrlEnd = document.getElementById("input-show").value;
   const urlBegin = "https://api.tvmaze.com/search/shows?q=";
   const urlWhole = urlBegin + inputUrlEnd;
